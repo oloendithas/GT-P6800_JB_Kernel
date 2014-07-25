@@ -2762,7 +2762,7 @@ REGULATOR_INIT(ldo7, "VT_CORE_1.8V", 1800000, 1800000, 0,
 
 REGULATOR_INIT(ldo8, "VUSB_3.3V", 3300000, 3300000, 1,
 		REGULATOR_CHANGE_STATUS, 1);
-REGULATOR_INIT(ldo10, "VPLL_1.2V", 1200000, 1200000, 1,
+REGULATOR_INIT(ldo10, "VPLL_1.2V", 1100000, 1100000, 1,
 		REGULATOR_CHANGE_STATUS, 1);
 REGULATOR_INIT(ldo11, "VCC_2.8V_HPD", 2800000, 2800000, 0,
 		REGULATOR_CHANGE_STATUS, 1);
@@ -2877,12 +2877,12 @@ static struct regulator_init_data buck4_init_data = {
 static struct regulator_init_data buck5_init_data = {
 	.constraints	= {
 		.name		= "VMEM_1.2V",
-		.min_uV		= 1200000,
-		.max_uV		= 1200000,
+		.min_uV		= 1100000,
+		.max_uV		= 1100000,
 		.apply_uV	= 1,
 		.always_on	= 1,
 		.state_mem	= {
-			.uV		= 1200000,
+			.uV		= 1100000,
 			.mode		= REGULATOR_MODE_NORMAL,
 			.enabled = 1,
 		},
@@ -2892,8 +2892,8 @@ static struct regulator_init_data buck5_init_data = {
 static struct regulator_init_data buck7_init_data = {
 	.constraints	= {
 		.name		= "VCC_SUB_2.0V",
-		.min_uV		= 2000000,
-		.max_uV		= 2000000,
+		.min_uV		= 1700000,
+		.max_uV		= 1700000,
 		.apply_uV	= 1,
 		.always_on	= 1,
 		.valid_ops_mask	= REGULATOR_CHANGE_STATUS,
@@ -4277,8 +4277,8 @@ static void ts_read_ta_status(bool *ta_status)
 #define MXT768E_MAX_MT_FINGERS		10
 #define MXT768E_CHRGTIME_BATT		64
 #define MXT768E_CHRGTIME_CHRG		64
-#define MXT768E_THRESHOLD_BATT		30
-#define MXT768E_THRESHOLD_CHRG		40
+#define MXT768E_THRESHOLD_BATT		20
+#define MXT768E_THRESHOLD_CHRG		20
 #define MXT768E_CALCFG_BATT		242
 #define MXT768E_CALCFG_CHRG		114
 

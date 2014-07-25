@@ -873,7 +873,7 @@ static void cpu_up_work(struct work_struct *work)
 
 	if (online == 1) {
 		printk(KERN_ERR "CPU_UP 3\n");
-		cpu_up(num_possible_cpus() - 1);
+		cpu_up(1);		//  FORCE dual-core ---------------------------------
 		nr_up -= 1;
 	}
 
@@ -883,7 +883,8 @@ static void cpu_up_work(struct work_struct *work)
 		if (cpu == 0)
 			continue;
 		printk(KERN_ERR "CPU_UP %d\n", cpu);
-		cpu_up(cpu);
+		if (cpu < 2)
+			cpu_up(cpu);
 	}
 }
 

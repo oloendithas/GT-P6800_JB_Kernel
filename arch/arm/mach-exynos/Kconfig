@@ -900,7 +900,6 @@ config MACH_Q1_BD
 endchoice
 config TARGET_LOCALE_NAATT_TEMP
         bool "Support North America GSM ATT Board"
-        default n
 
 config MACH_PX
 	bool "PX board"
@@ -1901,6 +1900,19 @@ config CPU_FREQ_TETHERING
 	depends on QC_MODEM
 	default n
 
+config INTELLI_PLUG
+  bool "Enable intelli-plug cpu hotplug driver"
+  default n
+  help
+    Generic Intelli-plug cpu hotplug driver for ARM SOCs
+ 
+config DEBUG_INTELLI_PLUG
+  bool "Enable intelli-plug cpu hotplug driver debugging"
+  depends on INTELLI_PLUG
+  default n
+  help
+    Generic Intelli-plug cpu hotplug driver debugging
+ 
 config MACH_KONA_SENSOR
 	bool "KONA Sensor Enable"
 	help

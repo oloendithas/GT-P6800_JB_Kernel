@@ -47,7 +47,7 @@
 #define LOWMEM_DEATHPENDING_DEPTH 3
 #endif
 
-static uint32_t lowmem_debug_level = 2;
+static uint32_t lowmem_debug_level = 1;
 static int lowmem_adj[6] = {
 	0,
 	1,
@@ -157,7 +157,8 @@ static int lowmem_shrink(struct shrinker *s, struct shrink_control *sc)
 	int other_free = global_page_state(NR_FREE_PAGES);
 #else
 	int other_free = global_page_state(NR_FREE_PAGES) -
-					global_page_state(NR_FREE_CMA_PAGES);
+					global_page_state(NR_FREE_CMA_PAGES)
+					 - totalreserve_pages;
 #endif
 	int other_file = global_page_state(NR_FILE_PAGES) -
 						global_page_state(NR_SHMEM);
